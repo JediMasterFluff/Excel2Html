@@ -1,5 +1,10 @@
 package forms;
 
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.web.WebView;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
@@ -10,22 +15,6 @@ public class MainScreen {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainScreen window = new MainScreen();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-*/
 	/**
 	 * Create the application.
 	 */
@@ -66,11 +55,18 @@ public class MainScreen {
 		tree.setEditable(true);
 		TreePanel.add(tree);
 		
-		
-		//JFXPanel;
-		JPanel ViewPanel = new JPanel();
-		ViewPanel.setBackground(new Color(255, 255, 0));
+		final JFXPanel ViewPanel = new JFXPanel() ;
 		ViewPanel.setBounds(0, 280, 1059, 416);
+		ViewPanel.setForeground(Color.YELLOW);
 		MainPanel.add(ViewPanel);
+		
+		Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+            	WebView webView = new WebView();
+            	ViewPanel.setScene(new Scene(webView));
+            	webView.getEngine().load("http://www.stackoverflow.com/");
+            }
+        });
 	}
 }
