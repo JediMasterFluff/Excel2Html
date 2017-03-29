@@ -1,13 +1,7 @@
 package forms;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import java.awt.GridBagLayout;
 import javax.swing.JPanel;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 import java.awt.Color;
 import javax.swing.JTree;

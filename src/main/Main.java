@@ -3,7 +3,6 @@ package main;
 import java.awt.EventQueue;
 
 import forms.MainScreen;
-import handlers.TextEditor;
 
 /*
  * This project is to be used my the members of the DKA to take their spreadsheet data
@@ -24,6 +23,7 @@ public class Main {
 			System.out.println("Output - " + newStr);
 			*/
 			EventQueue.invokeLater(new Runnable() {
+				@Override
 				public void run() {
 					try {
 						MainScreen window = new MainScreen();
